@@ -15,9 +15,19 @@ Create image go lang + grpc
 docker build -t brunocicom/fc-grpc . grpc
 ```
 
-Container de desenvolvimento
+Container de desenvolvimento com usuário
 ``` bash
-docker run --rm -it --name grpc -v $(pwd)/:/go/src brunocicom/fc-grpc sh
+docker run --rm -it --name grpc --user 1000:1000 -v $(pwd)/:/go/src brunocicom/fc-grpc sh
+```
+
+build package pb
+```
+protoc --proto_path=proto proto/*.proto --go_out=pb
+```
+
+build package pb with go stub
+```
+protoc --proto_path=proto proto/*.proto --go_out=pb --go-grpc_out=pb
 ```
 
 Run
