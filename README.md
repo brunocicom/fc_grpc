@@ -34,7 +34,7 @@ protoc --proto_path=proto proto/*.proto --go_out=pb
 
 build package pb with go stub
 ```
-protoc --proto_path=proto proto/*.proto --go_out=pb --go-grpc_out=pb
+protoc --proto_path=proto proto/*.proto --go_out=. --go-grpc_out=.
 ```
 
 Run
