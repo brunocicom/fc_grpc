@@ -6,6 +6,13 @@ links:
     - https://grpc.io/
     - https://developers.google.com/protocol-buffers/docs/overview
 
+# Server
+
+Run Server
+```
+go run cmd/server/server.go
+```
+
 # Anotações de trabalho
 
 WORKDIR: go/src
