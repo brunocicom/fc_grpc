@@ -5,6 +5,10 @@ import (
 	"net"
 
 	"google.golang.org/grpc"
+	"google.golang.org/grpc/reflection"
+
+	"github.com/brunocicom/fc_grpc/pb"
+	"github.com/brunocicom/fc_grpc/services"
 )
 
 func main() {
@@ -15,6 +19,10 @@ func main() {
 	}
 
 	grpcServer := grpc.NewServer()
+	pb.RegisterUserServiceServer(grpcServer, services.NewUserService())
+
+	// grpc no modo reflection
+	reflection.Register(grpcServer)
 
 	if err := grpcServer.Serve(lis); err != nil {
 		log.Fatalf("Could not serve: %v", err)
